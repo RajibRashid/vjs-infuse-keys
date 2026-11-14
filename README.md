@@ -1,36 +1,35 @@
-# VideoJS YouTube keyboard shortcuts
+# VideoJS Infuse-like keyboard shortcuts
 
-## new
-| key | action |
-|---|---|
-| . | When paused, Step forward one frame |
-| , | When paused, Step back one frame |
-| > | Increase playback rate |
-| < | Decrease playback rate |
-| c | Activate/ deactivate captions |
-| Home | Seek to the beginning of the video |
-| End | Seek to the end of the video |
-| 0 | Seek to the beginning of the video |
-| Shift+N | Move to next video |
-| Shift+P | Move to previous video |
-| Ctrl + ] | Next marker |
-| Ctrl + [ | Previous Marker |
+#### This stashapp plugin was created to emulate keyboard shortcuts within ScenePlayer (ie. VideoJS) that I am usually use with Infuse. Note that it changes the existing behavior for several keys
 
-## ignored
-| key | action |
-|---|---|
-| / | Open YT searchbar |
-| j | see l |
-| l | Used by stash for A/B looping |
-| i | miniplayer |
+## updated
+| key | action | overrides |
+|---|---|---|
+| . | step forward 30 seconds |hide/show scene scrubber |
+| , | step backwards 15 second |hide/show sidebar |
+| ] | jump to next chapter / marker | | 
+| [| jump to next chapter / marker | |
+| c | activate/ deactivate captions | |
+| Home | seek to the beginning of the video | |
+| 0 | seek to the beginning of the video | |
+| ↑ | move to previous video |volume up
+| ↓ | move to next video| volume down|
+
 
 ## existing
-- Space
-- Media Keys
+- space
+- media keys
 - k
 - m
 - 1-9
 
-[VideoJS shortcuts](https://videojs.com/guides/options/#useractionshotkeys)  
+[videojs shortcuts](https://videojs.com/guides/options/#useractionshotkeys)  
 [stash shortcuts](https://docs.stashapp.cc/in-app-manual/keyboardshortcuts/#scene-page-shortcuts)  
-[youtube shortcuts](https://support.google.com/youtube/answer/7631406)  
+
+## Acknowledgements
+
+This plugin is based on and adapted from the original [`vjs-shortcut`](https://github.com/feederbox826/plugins/tree/main/plugins/vjs-shortcut) plugin created by [feederbox826](https://github.com/feederbox826) as part of the [feederbox826/plugins](https://github.com/feederbox826/plugins) repository.
+
+## License
+
+This project retains the original license from the upstream plugin. See the [LICENSE](./LICENSE) file for details.

@@ -1,12 +1,15 @@
-// see README for shortcuts
+// see README for more details
 
 /*
-// ,. will override stash commands when focused on video
-. - when paused, step forward one frame
-, - when paused, step back one frame
-> - speed up playback rate
-< - slow down playback rate
-c - activate/ deactivate captions
+  custom keyboard shortcuts when focused on video
+    . - step forward 30 seconds         // was: hide/show scene scrubber
+    , - step backwards 15 seconds       // was: hide/show sidebar
+    ] - jump to next chapter
+    [ - jump to previous chapter
+    c - activate/ deactivate captions   // was: volume down
+    0 - seek to start of video
+    v - (down arrow) load next video 
+    ^ - (up arrow) load previous video  // was: volume up 
 */
 
 // declarations
@@ -34,61 +37,53 @@ const navMarker = (next = true) => {
   if (marker) player.currentTime(marker);
 }
 
-const changePbRate = (increase = true) => {
-  // fetch playback rates
-  const rates = player.playbackRates();
-  // get current playback rate
-  const curRate = player.playbackRate();
-  // get index of playback rate to increase or decrease
-  const curRateIdx = rates.findIndex((e) => e == curRate);
-  const incrRate = rates[curRateIdx + 1];
-  const decrRate = rates[curRateIdx - 1];
-  // if increase and is valid, increase
-  // if decrease and is valid, decrease
-  // otherwise do not change
-  const newRate = increase
-    ? (incrRate ?? curRate)
-    : (decrRate ?? curRate);
-  player.playbackRate(newRate);
-};
+const seek = (seconds = 0) => {
+  const curTime = player.currentTime();
+  const newTime = curTime + seconds;
+  player.currentTime(newTime);
+}
 
 function handleKey(evt) {
   const key = evt.key;
-  // Home | 0 - Seek to start of video
+  // home | 0 - seek to start of video
   if (key == "Home" || key == "0") {
     player.currentTime(0);
     evt.preventDefault();
   }
-  // End - Seek to end of video
-  else if (key == "End") {
-    player.currentTime(player.duration());
+  // . (>) - step forward 30 seconds
+  else if (key == "." && !evt.ctrlKey && !evt.altKey) {
+    seek(30);
+    evt.preventDefault();
+  } // , (<) - step backward 15 seconds
+  else if (key == "," && !evt.ctrlKey && !evt.altKey) {
+    seek(-15);
+    evt.preventDefault();
+  } // [ - jump to previous marker
+  else if (key == "]" && markers.length) {
+    navMarker(true);
+  } // ] - jump to next marker
+  else if (key == "[" && markers.length) {
+    navMarker(false);
+  } // c - toggle captions
+  else if (key == "c") {
+    toggleCaptions();
+  } // home | 0 - seek to start of video
+  if (key == "Home" || key == "0") {
+    player.currentTime(0);
+    evt.preventDefault();
+  } // down arrow - load next video
+  else if (key == "ArrowDown" || key == "/") {
+    player.skipButtons().onNext();
     evt.preventDefault();
   }
-  // . - Step forward 1 frame
-  else if (key == "." && player.paused()) {
-    player.currentTime(player.currentTime() + framestep);
-    evt.preventDefault();
-  } // , - step backward 1 frame
-  else if (key == "," && player.paused()) {
-    player.currentTime(player.currentTime() - framestep);
+  // up arrow - load previous video
+  else if (key == "ArrowUp") {
+    player.skipButtons().onPrevious();
     evt.preventDefault();
   }
-  // Ctrl + ], [ - Jump to next/previous marker
-  else if (key == "]" && evt.ctrlKey && markers.length) navMarker(true);
-  else if (key == "[" && evt.ctrlKey && markers.length) navMarker(false);
-  // slow down playback rate
-  else if (key == "<") changePbRate(false);
-  // speed up playback rate
-  else if (key == ">") changePbRate(true);
-  // c - toggle captions
-  else if (key == "c") toggleCaptions();
-  // Shift+N - Jump to next video
-  else if (key == "N" && evt.shiftKey) player.skipButtons().onNext()
-  // Shift+P - Jump to previous video
-  else if (key == "P" && evt.shiftKey) player.skipButtons().onPrevious()
 }
 
-// constants
+// setup constances when video-js is loaded
 function init() {
   player = document.querySelector("video-js").player;
   player.on("keydown", handleKey);
