@@ -5,15 +5,17 @@
 ## updated
 | key | action | overrides |
 |---|---|---|
-| . | step forward 30 seconds |hide/show scene scrubber |
-| , | step backwards 15 second |hide/show sidebar |
-| ] | jump to next chapter / marker | | 
-| [| jump to next chapter / marker | |
+| ↑ | move to previous video |volume up
+| ↓ | move to next video| volume down|
+| ← | step backward 30 seconds |step backward 10 seconds
+| → | step forward 60 seconds| step forward 10 seconds|
+| . | scrub forward 5% of total duration|hide/show scene scrubber |
+| , | scrub backward 5% of total duration |hide/show sidebar |
+| ] | volume up 10% | scrub forward 10%| 
+| [| volume down 10% | scrub backwards 10%|
 | c | activate/ deactivate captions | |
 | Home | seek to the beginning of the video | |
 | 0 | seek to the beginning of the video | |
-| ↑ | move to previous video |volume up
-| ↓ | move to next video| volume down|
 
 
 ## existing
