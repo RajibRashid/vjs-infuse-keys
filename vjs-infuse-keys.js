@@ -52,8 +52,17 @@ const adjustVolume = (delta = 0) => {
   player.volume(newVol);
 };
 
+const isTyping = (target) => {
+  if (!target) return false;
+  const tag = target.tagName?.toLowerCase();
+  return tag === "input" || tag === "textarea" || tag === "select" || target.isContentEditable;
+};
+
 // intercept keydown in the capture phase (runs before Stash's mousetrap handlers)
 function handleKey(evt) {
+  // do not run if no active player exists or if user is typing in a text box
+  if (!player || player.isDisposed?.() || isTyping(evt.target)) return;
+
   const key = evt.key;
 
   // right arrow - step forward 60 seconds
@@ -125,7 +134,7 @@ function init() {
   player = document.querySelector("video-js").player;
   if (!player) {
     console.error("[vjs-infuse-keys] unable to find vjs player");
-    return;
+    return false;
   }
 
   document.dispatchEvent(new CustomEvent("vjs-infuse-keys:ready", { "detail": { player } }));
