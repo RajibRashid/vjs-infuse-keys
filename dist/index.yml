@@ -2,10 +2,10 @@
   name: vjs-infuse-keys
   metadata:
     description: Add custom Infuse keyboard shortcuts to VideoJS
-  version: 0.1.5-5ad84c3
-  date: 2026-11-14 00:37:16
+  version: 0.1.6-0b7033c
+  date: 2026-11-16 11:36:52
   path: vjs-infuse-keys.zip
-  sha256: 694673d523fb350014110a7367bc92a53f68ec3e85fa2c75b566079b41a42fc9
+  sha256: d68a1ed628e0d504f75807e534174588f7e93f2a92319ee4fdb8fd624305d4ce
   requires:
     - wfke
 

@@ -4,8 +4,8 @@
   custom keyboard shortcuts when focused on video
     → - (right arrow) step forward 60 seconds     // was: forward 10 seconds
     ← - (left arrow) step backwards 30 seconds    // was: reverse 10 seconds
-    ↑ - (down arrow) load previous video          // was: volume down 
-    ↓ - (up arrow) load next video                // was: volume up 
+    ↑ - (up arrow) load previous video            // was: volume up 
+    ↓ - (down arrow) load next video              // was: volume down 
     . - jump to next chapter                      // was: hide/show scene scrubber
     , - jump to previous chapter                  // was: hide/show sidebar
     ] - jump forward 10%                          // was: volume up
