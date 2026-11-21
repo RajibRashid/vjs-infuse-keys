@@ -2,8 +2,8 @@
 
 /*
   custom keyboard shortcuts when focused on video
-    → - (right arrow) step forward 60 seconds     // was: forward 10 seconds
-    ← - (left arrow) step backwards 30 seconds    // was: reverse 10 seconds
+    → - (right arrow) step forward 30 seconds     // was: forward 10 seconds
+    ← - (left arrow) step backwards 15 seconds    // was: reverse 10 seconds
     ↑ - (up arrow) load previous video            // was: volume up 
     ↓ - (down arrow) load next video              // was: volume down 
     . - jump to next chapter                      // was: hide/show scene scrubber
@@ -67,12 +67,12 @@ function handleKey(evt) {
 
   // right arrow - step forward 60 seconds
   if (key == "ArrowRight" && !evt.ctrlKey && !evt.altKey) {
-    seekVideo(60);
+    seekVideo(30);
     evt.preventDefault();
     evt.stopImmediatePropagation();
   } // left arrow - step backward 30 seconds
   else if (key == "ArrowLeft" && !evt.ctrlKey && !evt.altKey) {
-    seekVideo(-30);
+    seekVideo(-15);
     evt.preventDefault();
     evt.stopImmediatePropagation();
   } // up arrow - load previous video

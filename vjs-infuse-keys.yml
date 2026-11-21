@@ -1,6 +1,6 @@
 name: vjs-infuse-keys
 description: Add custom Infuse keyboard shortcuts to VideoJS
-version: 0.1.7
+version: 0.1.8
 # requires: wfke
 ui:
   requires:

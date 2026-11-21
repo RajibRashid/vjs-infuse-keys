@@ -7,8 +7,8 @@
 |---|---|---|
 | ↑ | move to previous video |volume up
 | ↓ | move to next video| volume down|
-| ← | step backward 30 seconds |step backward 10 seconds
-| → | step forward 60 seconds| step forward 10 seconds|
+| ← | step backward 15 seconds |step backward 10 seconds
+| → | step forward 30 seconds| step forward 10 seconds|
 | . | scrub forward 5% of total duration|hide/show scene scrubber |
 | , | scrub backward 5% of total duration |hide/show sidebar |
 | ] | volume up 10% | scrub forward 10%| 
