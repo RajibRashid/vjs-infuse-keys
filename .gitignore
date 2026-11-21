@@ -1,0 +1,21 @@
+# maos metadata junk
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# filesystem metadata folders
+.Trashes
+.Spotlight-V100
+.fseventsd
+
+# vscode local state
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# other files
+wip.txt
+.env
+/data/
